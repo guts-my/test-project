@@ -5,3 +5,5 @@ import allure
 def test_addition():
     with allure.step("Check addition logic"):
         assert 2 + 2 == 4
+
+        #comment
