@@ -27,7 +27,6 @@ pyreadline3==3.5.4
 pyserial==3.5
 pytest==9.0.3
 python-dateutil==2.9.0.post0
-pywin32==310
 setuptools==80.8.0
 six==1.17.0
 wexpect==4.0.0
