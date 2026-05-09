@@ -67,8 +67,13 @@ jobs:
         with:
           name: allure-report
 
+      - name: Debug files
+        run: |
+            pwd
+            ls -R
+            
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: allure-report
+          publish_dir: .
