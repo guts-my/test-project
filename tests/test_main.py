@@ -22,5 +22,5 @@ def test_pokemon_type_validation():
         assert "electric" in types, f"Expected 'electric' in {types}"
     
     with allure.step("Whats the Pokemon"):
-        attach_log(data['name',"Pokemon"])
+        attach_log(data['name'],"Pokemon")
         assert data['name'] == "pikachu"
