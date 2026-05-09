@@ -10,11 +10,11 @@ def attach_log(name, content):
     )
 
 num = random.randint(1, 1300)
-
+api = "https://pokeapi.co/api/v2/pokemon/"+ str(num)
 @allure.feature("PokeAPI")
 def test_pokemon_type_validation():
     with allure.step("Get Random Pokemon"):
-        response = requests.get("https://pokeapi.co/api/v2/pokemon/",num)
+        response = requests.get(api)
         data = response.json()
     
     with allure.step("Verify Pokemon is Electric type"):
