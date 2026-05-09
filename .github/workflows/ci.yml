@@ -36,9 +36,10 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y default-jre
-          wget https://github.com/allure-framework/allure2/releases/latest/download/allure-2.24.0.tgz
-          tar -zxvf allure-2.24.0.tgz
-          sudo mv allure-2.24.0 /opt/allure
+          curl -o allure.tgz -L https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.29.0/allure-commandline-2.29.0.tgz
+
+          tar -zxvf allure.tgz
+          sudo mv allure-2.29.0 /opt/allure
           sudo ln -s /opt/allure/bin/allure /usr/bin/allure
 
       # 6. Generate Allure report
