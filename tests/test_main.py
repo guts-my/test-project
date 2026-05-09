@@ -1,5 +1,6 @@
 import allure
 import requests
+import random
 
 def attach_log(name, content):
     allure.attach(
@@ -8,16 +9,18 @@ def attach_log(name, content):
         attachment_type=allure.attachment_type.TEXT
     )
 
-# https://pokeapi.co/api/v2/pokemon/pikachu
+num = random.randint(1, 1300)
+
 @allure.feature("PokeAPI")
 def test_pokemon_type_validation():
-    with allure.step("Get Pikachu data"):
-        response = requests.get("https://pokeapi.co/api/v2/pokemon/pikachu")
+    with allure.step("Get Random Pokemon"):
+        response = requests.get("https://pokeapi.co/api/v2/pokemon/",num)
         data = response.json()
     
-    with allure.step("Verify Pikachu is Electric type"):
+    with allure.step("Verify Pokemon is Electric type"):
         types = [t['type']['name'] for t in data['types']]
         assert "electric" in types, f"Expected 'electric' in {types}"
     
-    with allure.step("Verify name is pikachu"):
+    with allure.step("Whats the Pokemon"):
+        attach_log(data['name',"Pokemon"])
         assert data['name'] == "pikachu"
