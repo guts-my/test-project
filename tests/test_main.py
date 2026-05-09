@@ -13,7 +13,7 @@ def attach_log(name, content):
 def test_pokemon_type_validation():
     with allure.step("Get Pikachu data"):
         response = requests.get("https://pokeapi.co/api/v2/pokemon/pikachu")
-        data = response.jpson()
+        data = response.json()
     
     with allure.step("Verify Pikachu is Electric type"):
         types = [t['type']['name'] for t in data['types']]
